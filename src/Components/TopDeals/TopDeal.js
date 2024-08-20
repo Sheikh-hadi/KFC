@@ -100,6 +100,40 @@ const TopDeal = ({ imageSrc, title, description, price, addon }) => {
         <p style={styles.price}>Rs {price}</p>
         <button
       style={styles.button}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

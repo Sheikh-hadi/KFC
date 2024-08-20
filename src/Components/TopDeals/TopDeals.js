@@ -1,6 +1,6 @@
 import React from "react";
 import TopDeal from "./TopDeal";
-import productList from "../../Model/menuTopDealModel"; // Adjust the path accordingly
+import categoryList from "../../Model/categoryModel";
 
 const TopDeals = () => {
   const containerStyle = {
@@ -14,7 +14,7 @@ const TopDeals = () => {
 
   return (
     <div style={containerStyle}>
-      {productList.map((deal, index) => (
+      {categoryList.map((deal, index) => (
         <TopDeal
           key={index}
           imageSrc={deal.imageSrc}
