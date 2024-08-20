@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import categoryList from '../../Model/categoryModel';
 const NavBar = ({ onCategoryClick }) => {
   console.log('onCategoryClick:', onCategoryClick); // Verify the prop is passed correctly
-
-  const buttons = [
-    "Everyday Value",
-    "Ala-Carte-&-Combos",
-    "Promotion",
-    "Signature-Boxes",
-    "Sharing",
-    "Snacks-&-Beverages",
-    "Midnight (Start at 12 am)"
-  ];
-
+ 
   const [clickedButton, setClickedButton] = useState(null);
 
   const handleButtonClick = (button) => {
@@ -28,7 +18,7 @@ const NavBar = ({ onCategoryClick }) => {
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">
-        {buttons.map((button, index) => (
+        {categoryList.map((button, index) => (
           <div className="col-12 col-md-auto mb-2" key={index}>
             <button
               className="btn btn-block"

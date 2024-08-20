@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Category/>
       <List/>
+      <Category/>
       <ExploreMenu/>
       <Choice/>
       <TopDeals/>

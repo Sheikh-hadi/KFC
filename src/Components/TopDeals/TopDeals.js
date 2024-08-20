@@ -1,7 +1,6 @@
 import React from "react";
 import TopDeal from "./TopDeal";
-import categoryList from "../../Model/categoryModel";
-
+import productList from "../../Model/productModel";
 const TopDeals = () => {
   const containerStyle = {
     display: "flex",
@@ -14,7 +13,7 @@ const TopDeals = () => {
 
   return (
     <div style={containerStyle}>
-      {categoryList.map((deal, index) => (
+      {productList.map((deal, index) => (
         <TopDeal
           key={index}
           imageSrc={deal.imageSrc}

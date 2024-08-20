@@ -13,9 +13,7 @@ const Category = () => {
         return (
           <div key={index}>
             <h3>{item.value}</h3>
-          
-              <Choices filter={filterProducts} />
-            )
+            <Choices filter={filterProducts} />
           </div>
         );
       })}

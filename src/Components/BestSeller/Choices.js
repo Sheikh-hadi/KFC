@@ -1,16 +1,15 @@
 import React from "react";
 
-const Choices = ({filter}) => {
+const Choices = ({ filter }) => {
   console.log("props: ", filter);
   const styles = {
     container: {
       backgroundColor: "#000",
-
       padding: "20px",
       color: "#fff",
-      width: "300px", // Container width as shown in the image
+      width: "300px",
+      
     },
-
     card: {
       backgroundColor: "#1c1c1c",
       borderRadius: "2px",
@@ -62,27 +61,23 @@ const Choices = ({filter}) => {
 
   return (
     <>
-    {filter.map((card, index) => (
-  <div key={index} style={styles.container}>
-    {/* <div style={styles.headingContainer}>
-      <h2 style={styles.heading}>{heading}</h2>
-      <div style={styles.headingUnderline}></div>
-    </div> */}
-    
-    <div style={styles.card}>
-      <div style={styles.topBarContainer}>
-        <div style={styles.topBar}></div>
-        <div style={styles.topBar}></div>
-        <div style={styles.topBar}></div>
-      </div>
-      <div style={styles.title}>{card.title}</div>  {/* Use `card` instead of `props` */}
-      <div style={styles.priceTag}>{`Rs ${card.price}`}</div>  {/* Use `card` instead of `props` */}
-      <img src={card.imageSrc} alt={card.title} style={styles.image} />  {/* Use `card` instead of `props` */}
-    </div>
-  </div>
-))}
-</>
-
+      {filter && filter.length > 0 && (
+        filter.map((card, index) => (
+          <div className="d-flex" key={index} style={styles.container}>
+            <div style={styles.card}>
+              <div style={styles.topBarContainer}>
+                <div style={styles.topBar}></div>
+                <div style={styles.topBar}></div>
+                <div style={styles.topBar}></div>
+              </div>
+              <div style={styles.title}>{card.title}</div>
+              <div style={styles.priceTag}>{`Rs ${card.price}`}</div>
+              <img src={card.imageSrc} alt={card.title} style={styles.image} />
+            </div>
+          </div>
+        ))
+      )}
+    </>
   );
 };
 
