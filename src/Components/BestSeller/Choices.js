@@ -7,8 +7,9 @@ const Choices = ({ filter }) => {
       backgroundColor: "#000",
       padding: "20px",
       color: "#fff",
-      width: "300px",
-      
+      display: "flex",       // Use flexbox
+      flexWrap: "wrap",      // Allows wrapping if there are too many items
+      gap: "20px",           // Adds space between the cards
     },
     card: {
       backgroundColor: "#1c1c1c",
@@ -16,6 +17,8 @@ const Choices = ({ filter }) => {
       padding: "15px",
       textAlign: "left",
       position: "relative",
+      flex: "1 1 300px",     // Allows flex items to grow and shrink
+      maxWidth: "300px",     // Ensures the cards don't exceed a certain width
     },
     image: {
       width: "100%",
@@ -62,9 +65,9 @@ const Choices = ({ filter }) => {
   return (
     <>
       {filter && filter.length > 0 && (
-        filter.map((card, index) => (
-          <div className="d-flex" key={index} style={styles.container}>
-            <div style={styles.card}>
+        <div style={styles.container}>
+          {filter.map((card, index) => (
+            <div key={index} style={styles.card}>
               <div style={styles.topBarContainer}>
                 <div style={styles.topBar}></div>
                 <div style={styles.topBar}></div>
@@ -74,8 +77,8 @@ const Choices = ({ filter }) => {
               <div style={styles.priceTag}>{`Rs ${card.price}`}</div>
               <img src={card.imageSrc} alt={card.title} style={styles.image} />
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </>
   );
