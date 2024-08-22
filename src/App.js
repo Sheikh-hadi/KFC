@@ -1,18 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AboutUsIntro from './Components/AboutUs/AboutUsIntro';
-import Choice from './Components/BestSeller/Choice';
-import Category from './Components/Category/Category';
-import ExploreMenu from './Components/ExploreMenu/ExploreMenu';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
-import HeaderButtonList from './Components/HeaderButtonList/HeaderButtonList';
-import TopDeals from './Components/TopDeals/TopDeals';
-import AboutUsHistorySection from './Components/AboutUs/AboutUsHistorySection';
-import Timeline from './Components/AboutUs/AboutUsStory/Timeline';
-import FactSection from './Components/AboutUs/AboutUsFact/FactSection';
-import KFCPartnership from './Components/AboutUs/AboutUsPartnership/KFCPartnership';
-import KFCMitaoBhook from './Components/AboutUs/KFCMitaoBhook';
+import AboutUs from './Pages/AboutUs';
+import Home from './Pages/Home';
+import FeedbackFormPage from './Pages/FeedbackFormPage';
 
 function App() {
   return (
@@ -20,22 +12,11 @@ function App() {
       <Header/> 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={
             <>
-              <AboutUsIntro/>
-              <AboutUsHistorySection/>
-           <Timeline/>
-           <FactSection/>
-           <KFCMitaoBhook/>
-           <KFCPartnership/>
-              <ExploreMenu/>
-              <HeaderButtonList/>
-              <Category/>
-              <Choice/>
-              <TopDeals/>
-              <AboutUsIntro/>
+            <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/FeedbackForm" element={<FeedbackFormPage/>} />
             </>
-          } />
         </Routes>
       </BrowserRouter>
       <Footer/>

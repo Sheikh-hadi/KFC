@@ -1,6 +1,6 @@
 
 import React from 'react';
-import PartnershipCard from './PartnershipCard';
+import PartnershipCard from '../Components/AboutUs/AboutUsPartnership/PartnershipCard';
 
 const partnershipsData = [
   {
