@@ -14,7 +14,6 @@ const AboutUsHistorySection = () => {
         backgroundColor: '#231f20', 
         padding: '40px', 
         borderRadius: '10px', 
-        display: 'flex', 
         justifyContent: 'center', 
         alignItems: 'center', 
         width: '100%', 

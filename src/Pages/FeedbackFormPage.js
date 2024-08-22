@@ -1,10 +1,10 @@
 import React from 'react'
-import FeedbackForm from '../Components/FeedbackForm/FeedbackForm'
+import FeedbackForm2 from '../Components/FeedbackForm/FeedbackForm2'
 
 const FeedbackFormPage = () => {
   return (
     <div>
-      <FeedbackForm/>
+     <FeedbackForm2/>
     </div>
   )
 }
