@@ -1,7 +1,7 @@
-
 import React from 'react';
 
 const PartnershipCard = ({ logo, altText, description }) => {
+  
   const cardStyle = {
     backgroundColor: '#1C1C1C',
     borderRadius: '10px',

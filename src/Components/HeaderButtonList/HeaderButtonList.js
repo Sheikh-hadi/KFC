@@ -1,44 +1,29 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import categoryList from '../../Model/categoryModel'; // Adjust path as needed
 
-const HeaderButtonList = ({ onCategoryClick }) => {
-  console.log('onCategoryClick:', onCategoryClick); // Verify the prop is passed correctly
-
-  const buttons = [
-    "Everyday Value",
-    "Ala-Carte-&-Combos",
-    "Promotion",
-    "Signature-Boxes",
-    "Sharing",
-    "Snacks-&-Beverages",
-    "Midnight (Start at 12 am)"
-  ];
-
+const HeaderButtonList = () => {
   const [clickedButton, setClickedButton] = useState(null);
 
   const handleButtonClick = (button) => {
     setClickedButton(button);
-    if (onCategoryClick) {
-      onCategoryClick(button); // Ensure this line is executed
-    } else {
-      console.error("onCategoryClick is not a function");
-    }
+    // Perform actions here if needed
   };
 
   return (
     <div className="bg-black mt-4">
       <div className="row justify-content-center">
-        {buttons.map((button, index) => (
+        {categoryList.map((item, index) => (
           <div className="col-12 col-md-auto mb-2" key={index}>
             <button
               className="btn btn-block"
               style={{
                 ...styles.button,
-                backgroundColor: clickedButton === button ? 'red' : '#000'
+                backgroundColor: clickedButton === item.value ? 'red' : '#000'
               }}
-              onClick={() => handleButtonClick(button)}
+              onClick={() => handleButtonClick(item.value)}
             >
-              {button}
+              {item.value}
             </button>
           </div>
         ))}
@@ -47,18 +32,17 @@ const HeaderButtonList = ({ onCategoryClick }) => {
   );
 };
 
-
 const styles = {
-    button: {
-      marginTop:'20px',
-        color: '#fff',
-        backgroundColor:'#1c1816',
-        padding: '10px 20px',
-        border: '1px solid white',
-        borderRadius: '5px',
-        width: '100%',
-        textAlign: 'center',
-    }
+  button: {
+    marginTop: '20px',
+    color: '#fff',
+    backgroundColor: '#1c1816',
+    padding: '10px 20px',
+    border: '1px solid white',
+    borderRadius: '5px',
+    width: '100%',
+    textAlign: 'center',
+  }
 };
 
 export default HeaderButtonList;

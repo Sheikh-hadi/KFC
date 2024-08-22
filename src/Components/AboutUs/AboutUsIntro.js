@@ -3,18 +3,9 @@ import { Row, Col } from "react-bootstrap";
 
 const AboutUsIntro = () => {
   return (
-    <div
-      fluid
-      style={{
-        backgroundColor: "black",
-        padding: "20px 0",
-        position: "relative",
-      }}
-    >
-      <Row>
-        <h2 style={{ color: "#fff", textAlign: "center", fontWeight: "bold" }}>
-          About us
-        </h2>
+    <>
+      <Row >
+        <h2 style={{ textAlign: "center", fontWeight: "bold" }}>About us</h2>
       </Row>
 
       <Row className="align-items-center">
@@ -82,7 +73,7 @@ const AboutUsIntro = () => {
           ></i>
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 
