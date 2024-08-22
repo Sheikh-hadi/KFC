@@ -4,16 +4,7 @@ import { Row, Col, Image } from "react-bootstrap";
 const AboutUsHistorySection = () => {
   return (
  
-      <div style={{ 
-        backgroundColor: '#231f20', 
-        padding: '40px', 
-        borderRadius: '10px', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        width: '100%', 
-        maxWidth: '1200px',
-        zIndex: 1,
-      }}>
+    
     <Row
       className="align-items-center"
       style={{ marginTop: "10px", marginBottom: "10px" }}
