@@ -1,127 +1,85 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Row, Col } from "react-bootstrap";
 
 const AboutUsIntro = () => {
-  const text = `
-    KFC entered Pakistan in 1997 and since then, it's been a journey
-    full of excitement and Finger Lickin’ goodness! The first KFC
-    restaurant opened in Pakistan in Gulshan Iqbal, Karachi and
-    now our Finger Lickin’ Chicken is available in 37 cities with over
-    128 restaurants! Being the most loved fast food chain in Pakistan,
-    KFC leaves no stone unturned to provide its customers the most
-    delicious chicken and an excellent dining experience.
-  `;
-
-  const lines = text
-    .trim()
-    .split(' ')
-    .reduce((acc, word, index) => {
-      if (index % 17 === 0) acc.push([]);
-      acc[acc.length - 1].push(word);
-      return acc;
-    }, [])
-    .map(line => line.join(' '));
-
   return (
-    <div fluid style={{ backgroundColor: 'black', padding: '20px 0', position: 'relative' }}>
-      {/* Heading Section */}
+    <div
+      fluid
+      style={{
+        backgroundColor: "black",
+        padding: "20px 0",
+        position: "relative",
+      }}
+    >
       <Row>
-        <Col md={12}>
-          <h2 style={{ color: '#fff', textAlign: 'center', fontWeight: 'bold' }}>
-            About us
-          </h2>
-        </Col>
+        <h2 style={{ color: "#fff", textAlign: "center", fontWeight: "bold" }}>
+          About us
+        </h2>
       </Row>
-      
-      {/* Main Content Section */}
-      <Row className="justify-content-center">
-        {/* Left Navigation Arrow */}
-        <Col
-          md={1}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
+
+      <Row className="align-items-center">
+        <Col md={1} lg={1}>
+          <i
+            className="fas fa-chevron-left"
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              border: '2px solid red',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
+              border: "2px solid red",
+              padding: "10px",
+              color: "white",
+              fontSize: "20px",
+              float: "right",
+              borderRadius: "100%",
             }}
+          ></i>
+        </Col>
+        <Col md={10} lg={10}>
+          <Row
+            className="align-items-center"
+            style={{ background: "grey", borderRadius: "8px", padding: "20px" }}
           >
-            <i className="fas fa-chevron-left" style={{ color: 'white', fontSize: '20px' }}></i>
-          </div>
+            <Col md={8} lg={8} style={{ color: "white" }}>
+              <p style={{ textAlign: "justify" }}>
+                KFC entered Pakistan in 1997 and since then, it's been a journey
+                full of excitement and Finger Lickin’ goodness! The first KFC
+                restaurant opened in Pakistan in Gulshan Iqbal, Karachi and now
+                our Finger Lickin’ Chicken is available in 37 cities with over
+                128 restaurants! Being the most loved fast food chain in
+                Pakistan, KFC leaves no stone unturned to provide its customers
+                the most delicious chicken and an excellent dining experience.
+              </p>
+            </Col>
+            <Col md={4} lg={4} style={{ color: "white" }}>
+              <p
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#e4002b",
+                  color: "white",
+                  borderRadius: "10px",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  right: "25px", // Positioned close to the main paragraph box
+                  width: "400px", // Adjusted width for better fit
+                  maxWidth: "100%",
+                }}
+              >
+                WE PRIDE OURSELVES ON USING QUALITY HALAL CHICKEN AND LOCAL
+                INGREDIENTS FROM TRUSTED SUPPLIERS
+              </p>
+            </Col>
+          </Row>
         </Col>
 
-        {/* Main Paragraph Box */}
-        <Col
-          md={9}  // Adjusted to make the paragraph box wider
-          style={{
-            backgroundColor: '#2e2e2e',
-            color: 'white',
-            padding: '50px',
-            borderRadius: '10px',
-            position: 'relative',
-            textAlign: 'left',  // Left-align text within the paragraph box
-          }}
-        >
-          {/* Render each line of the text content */}
-          {lines.map((line, i) => (
-            <p key={i} style={{ marginBottom: 0 }}>{line}</p>
-          ))}
-
-          {/* Inner Box with Red Background */}
-          <div 
-            style={{ 
-              backgroundColor: '#e4002b', 
-              color: 'white', 
-              padding: '10px', 
-              borderRadius: '10px', 
-              fontWeight: 'bold', 
-              textAlign: 'center',
-              position: 'absolute',
-              right: '25px', // Positioned close to the main paragraph box
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: '400px',  // Adjusted width for better fit
-              maxWidth: '100%',
-            }}
-          >
-            WE PRIDE OURSELVES ON USING QUALITY HALAL CHICKEN AND LOCAL
-            INGREDIENTS FROM TRUSTED SUPPLIERS
-          </div>
-        </Col>
-
-        {/* Right Navigation Arrow */}
-        <Col
-          md={1}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
+        <Col md={1} lg={1}>
+          <i
+            className="fas fa-chevron-right"
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              border: '2px solid red',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
+              border: "2px solid red",
+              padding: "10px",
+              color: "white",
+              fontSize: "20px",
+              float: "left",
+              borderRadius: "100%",
             }}
-          >
-            <i className="fas fa-chevron-right" style={{ color: 'white', fontSize: '20px' }}></i>
-          </div>
+          ></i>
         </Col>
       </Row>
     </div>
