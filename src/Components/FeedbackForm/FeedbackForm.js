@@ -6,13 +6,40 @@ import { Row, Col } from 'react-bootstrap';
 
 const FeedbackForm = () => {
   const [focusedInput, setFocusedInput] = useState('');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    orderId: '',
+    feedbackChannel: '',
+    selectStore: '',
+    date: '',
+    feedbackType: '',
+    feedback: '',
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    console.log('Form Data:', formData); // Log form data to console
+    // Here you can also add code to send form data to a server or perform other actions
+  };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}> {/* Add form tag with onSubmit handler */}
       <Row className="text-center mt-5 mb-4">
         <Col>
-          <h1 style={{ color: 'white',fontSize:'30px' }}>Have some Feedback to share</h1>
-          <h2 style={{ color: '#ea002a' ,fontSize:'25px'}}>Well, you’ve come to the right place!</h2>
+          <h1 style={{ color: 'white', fontSize: '30px' }}>Have some Feedback to share</h1>
+          <h2 style={{ color: '#ea002a', fontSize: '25px' }}>Well, you’ve come to the right place!</h2>
           <p style={{ color: 'white', padding: '0 27%' }}>
             Fill in the sections below and we'll be in touch soon, or if you want
             to contact a specific store, visit our locations page for store
@@ -30,6 +57,8 @@ const FeedbackForm = () => {
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>FULL NAME *</label>
                 <input
                   type="text"
+                  name="fullName"
+                  value={formData.fullName}
                   className="form-control"
                   style={{
                     backgroundColor: '#333',
@@ -39,6 +68,7 @@ const FeedbackForm = () => {
                     borderBottom: focusedInput === 'fullName' ? '2px solid #ea002a' : '1px solid #fff',
                     padding: '0.5rem 1rem',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('fullName')}
                   onBlur={() => setFocusedInput('')}
                 />
@@ -62,6 +92,8 @@ const FeedbackForm = () => {
                   </span>
                   <input
                     type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
                     className="form-control"
                     style={{
                       backgroundColor: '#333',
@@ -71,6 +103,7 @@ const FeedbackForm = () => {
                       borderBottom: focusedInput === 'phoneNumber' ? '2px solid #ea002a' : '1px solid #fff',
                       padding: '0.5rem 1rem',
                     }}
+                    onChange={handleChange}
                     onFocus={() => setFocusedInput('phoneNumber')}
                     onBlur={() => setFocusedInput('')}
                   />
@@ -82,6 +115,8 @@ const FeedbackForm = () => {
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>EMAIL *</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
                   className="form-control"
                   style={{
                     backgroundColor: '#333',
@@ -91,6 +126,7 @@ const FeedbackForm = () => {
                     borderBottom: focusedInput === 'email' ? '2px solid #ea002a' : '1px solid #fff',
                     padding: '0.5rem 1rem',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('email')}
                   onBlur={() => setFocusedInput('')}
                 />
@@ -101,6 +137,8 @@ const FeedbackForm = () => {
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>ORDER ID *</label>
                 <input
                   type="text"
+                  name="orderId"
+                  value={formData.orderId}
                   className="form-control"
                   style={{
                     backgroundColor: '#333',
@@ -110,6 +148,7 @@ const FeedbackForm = () => {
                     borderBottom: focusedInput === 'orderId' ? '2px solid #ea002a' : '1px solid #fff',
                     padding: '0.5rem 1rem',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('orderId')}
                   onBlur={() => setFocusedInput('')}
                 />
@@ -119,6 +158,8 @@ const FeedbackForm = () => {
               <Col>
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>FEEDBACK CHANNEL *</label>
                 <select
+                  name="feedbackChannel"
+                  value={formData.feedbackChannel}
                   className="form-select"
                   style={{
                     backgroundColor: '#333',
@@ -128,6 +169,7 @@ const FeedbackForm = () => {
                     padding: '0.5rem 1rem',
                     borderRadius: '4px',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('feedbackChannel')}
                   onBlur={() => setFocusedInput('')}
                 >
@@ -148,6 +190,8 @@ const FeedbackForm = () => {
               <Col>
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>SELECT STORE</label>
                 <select
+                  name="selectStore"
+                  value={formData.selectStore}
                   className="form-select"
                   style={{
                     backgroundColor: '#333',
@@ -157,6 +201,7 @@ const FeedbackForm = () => {
                     padding: '0.5rem 1rem',
                     borderRadius: '4px',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('selectStore')}
                   onBlur={() => setFocusedInput('')}
                 >
@@ -200,11 +245,12 @@ const FeedbackForm = () => {
                 </div>
               </Col>
             </Row>
-
             <Row className="mb-3">
               <Col>
-                <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>FEEDBACK TYPE *</label>
+                <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>FEEDBACK TYPE</label>
                 <select
+                  name="feedbackType"
+                  value={formData.feedbackType}
                   className="form-select"
                   style={{
                     backgroundColor: '#333',
@@ -214,35 +260,41 @@ const FeedbackForm = () => {
                     padding: '0.5rem 1rem',
                     borderRadius: '4px',
                   }}
+                  onChange={handleChange}
                   onFocus={() => setFocusedInput('feedbackType')}
                   onBlur={() => setFocusedInput('')}
                 >
-                  <option>Comments</option>
-                  <option>Suggestions</option>
-                  <option>Questions</option>
+                  <option>Compliment</option>
+                  <option>Complaint</option>
+                  <option>Suggestion</option>
                 </select>
               </Col>
             </Row>
-            <Row className="mb-1">
+            <Row>
               <Col>
                 <label style={{ color: '#fff', fontWeight: 'bold', marginBottom: '10px' }}>FEEDBACK *</label>
                 <textarea
+                  name="feedback"
+                  value={formData.feedback}
                   className="form-control"
                   rows="6"
                   style={{
                     backgroundColor: '#333',
                     color: '#fff',
-                    border: '1px solid white',
+                    border: 'none',
                     borderRadius: '4px',
+                    borderBottom: focusedInput === 'feedback' ? '2px solid #ea002a' : '1px solid #fff',
+                    padding: '0.5rem 1rem',
                   }}
-                ></textarea>
+                  onChange={handleChange}
+                  onFocus={() => setFocusedInput('feedback')}
+                  onBlur={() => setFocusedInput('')}
+                />
               </Col>
             </Row>
+         
           </div>
-        </Col>
-      </Row>
-
-      <Row className="justify-content-center mt-3 mb-5">
+        </Col>     <Row className="justify-content-center mt-3 mb-5">
         <Col xs="auto">
           <button
             type="submit"
@@ -253,7 +305,8 @@ const FeedbackForm = () => {
           </button>
         </Col>
       </Row>
-    </div>
+      </Row>
+    </form>
   );
 };
 

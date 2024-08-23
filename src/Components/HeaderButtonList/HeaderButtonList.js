@@ -23,7 +23,7 @@ const HeaderButtonList = () => {
               }}
               onClick={() => handleButtonClick(item.value)}
             >
-              {item.value}
+             <a href={item.id}> {item.value}</a>
             </button>
           </div>
         ))}
