@@ -6,6 +6,7 @@ import AboutUs from "./Pages/AboutUs";
 import Home from "./Pages/Home";
 import FeedbackFormPage from "./Pages/FeedbackFormPage";
 import ContactUsPage from "./Pages/ContactUsPage";
+import CheckOut from "./Pages/CheckOut";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/FeedbackForm" element={<FeedbackFormPage />} />
             <Route path="/ContactUs" element={<ContactUsPage/>} />
+            <Route path="/checkout" element={<CheckOut/>}/>
           </>
         </Routes>
       </BrowserRouter>
