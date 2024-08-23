@@ -122,7 +122,7 @@ const FeedbackForm2 = () => {
             </select>
           </div>
           <div className="mb-2">
-            <textarea className="form-control" rows="8"></textarea>
+            <textarea className="form-control" rows="5"></textarea>
           </div>
         </Col>
       </Row>
