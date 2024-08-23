@@ -2,7 +2,6 @@ import React from "react";
 import categoryList from "../../Model/categoryModel";
 import productList from "../../Model/productModel";
 import Choices from "../BestSeller/Choices";
-import { Button } from "react-bootstrap";
 
 const Category = () => {
   return (
@@ -16,11 +15,8 @@ const Category = () => {
         return (
           <div key={index}>
             {/* "Top Deals" Button */}
-            <Button
+            <h2
               style={{
-                backgroundColor: "black",
-                border: "none",
-                textAlign: "left",
                 color: "#fff",
                 fontWeight: "bold",
                 fontSize: "20px",
@@ -28,8 +24,8 @@ const Category = () => {
                 width: "100%",
               }}
             >
-              {item.value}
-            </Button>
+              {item.value.toLocaleUpperCase()}
+            </h2>
 
             {/* Red Underline */}
             <div

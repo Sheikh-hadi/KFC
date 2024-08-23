@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import categoryList from '../../Model/categoryModel'; // Adjust path as needed
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import categoryList from "../../Model/categoryModel"; // Adjust path as needed
 
 const HeaderButtonList = () => {
   const [clickedButton, setClickedButton] = useState(null);
@@ -19,11 +19,11 @@ const HeaderButtonList = () => {
               className="btn btn-block"
               style={{
                 ...styles.button,
-                backgroundColor: clickedButton === item.value ? 'red' : '#000'
+                backgroundColor: clickedButton === item.value ? "red" : "#000",
               }}
               onClick={() => handleButtonClick(item.value)}
             >
-             <a href={item.id}> {item.value}</a>
+              {item.value}
             </button>
           </div>
         ))}
@@ -34,15 +34,15 @@ const HeaderButtonList = () => {
 
 const styles = {
   button: {
-    marginTop: '20px',
-    color: '#fff',
-    backgroundColor: '#1c1816',
-    padding: '10px 20px',
-    border: '1px solid white',
-    borderRadius: '5px',
-    width: '100%',
-    textAlign: 'center',
-  }
+    marginTop: "20px",
+    color: "#fff",
+    backgroundColor: "#1c1816",
+    padding: "10px 20px",
+    border: "1px solid white",
+    borderRadius: "5px",
+    width: "100%",
+    textAlign: "center",
+  },
 };
 
 export default HeaderButtonList;

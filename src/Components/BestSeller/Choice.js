@@ -30,7 +30,7 @@ const Choice = () => {
                     >
                         Top Deals
                     </Button>
-                    {/* <div style={{ width: '50px', height: '2px', backgroundColor: '#e4002b', marginTop: '10px' }}></div> */}
+                  
                 </Col>
             </Row>
 

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { Button, Checkbox, Form, Input } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col } from "react-bootstrap";
 
 const FeedbackForm = () => {
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   const [focusedInput, setFocusedInput] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -45,8 +53,6 @@ const FeedbackForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {" "}
-      {/ Add form tag with onSubmit handler /}
       <Row className="text-center mt-5 mb-4">
         <Col>
           <h1 style={{ color: "white", fontSize: "30px" }}>
@@ -61,8 +67,74 @@ const FeedbackForm = () => {
             contact details. * indicates a required answer
           </p>
         </Col>
+        <Form
+          name="basic"
+          labelCol={{
+            span: 8,
+          }}
+          wrapperCol={{
+            span: 16,
+          }}
+          style={{
+            maxWidth: 600,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
       </Row>
-      <Row className="justify-content-center">
+      {/* <Row className="justify-content-center">
         <Col md={6} lg={5} className="mb-3">
           <div
             style={{
@@ -367,7 +439,7 @@ const FeedbackForm = () => {
             </button>
           </Col>
         </Row>
-      </Row>
+      </Row> */}
     </form>
   );
 };
