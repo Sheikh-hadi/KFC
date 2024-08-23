@@ -1,28 +1,21 @@
 import React, { useState } from "react";
-import { Button, Checkbox, Form, Input } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col } from "react-bootstrap";
+import "./FeedbackForm.css";
 
 const FeedbackForm = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
   const [focusedInput, setFocusedInput] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
     email: "",
     orderId: "",
-    feedbackChannel: "",
-    selectStore: "",
+    feedbackChannel: "Dine In", // Default value
+    selectStore: "Lahore",      // Default value
     date: "",
-    feedbackType: "",
+    feedbackType: "Compliment", // Default value
     feedback: "",
   });
 
@@ -41,6 +34,7 @@ const FeedbackForm = () => {
     console.log("Form Data:", formData); // Log form data to console
     // Here you can also add code to send form data to a server or perform other actions
   };
+
   const style = {
     backgroundColor: "#333",
     color: "#fff",
@@ -49,6 +43,7 @@ const FeedbackForm = () => {
     borderBottom:
       focusedInput === "fullName" ? "2px solid #ea002a" : "1px solid #fff",
     padding: "0.5rem 1rem",
+    width: "100%",
   };
 
   return (
@@ -67,74 +62,8 @@ const FeedbackForm = () => {
             contact details. * indicates a required answer
           </p>
         </Col>
-        <Form
-          name="basic"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[
-              {
-                required: true,
-                message: "Please input your username!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
-          >
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
       </Row>
-      {/* <Row className="justify-content-center">
+      <Row className="justify-content-center">
         <Col md={6} lg={5} className="mb-3">
           <div
             style={{
@@ -167,7 +96,7 @@ const FeedbackForm = () => {
                 <input
                   type="text"
                   name="fullName"
-                  value={formData.fullName}
+                  placeholder="Enter Your Name:"
                   className="form-control"
                   style={style}
                   onChange={handleChange}
@@ -183,21 +112,13 @@ const FeedbackForm = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  PHONE NUMBER (3XXXXXXXXXX) *
+                  PHONE NUMBER *
                 </label>
                 <div className="input-group">
-                  <span
-                    className="input-group-text"
-                    style={style}
-                    onFocus={() => setFocusedInput("phoneNumber")}
-                    onBlur={() => setFocusedInput("")}
-                  >
-                    +92
-                  </span>
                   <input
                     type="text"
                     name="phoneNumber"
-                    value={formData.phoneNumber}
+                    placeholder="Enter Your Phone Number:"
                     className="form-control"
                     style={{
                       backgroundColor: "#333",
@@ -231,7 +152,7 @@ const FeedbackForm = () => {
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
+                  placeholder="Enter Your Email:"
                   className="form-control"
                   style={style}
                   onChange={handleChange}
@@ -254,7 +175,7 @@ const FeedbackForm = () => {
                 <input
                   type="text"
                   name="orderId"
-                  value={formData.orderId}
+                  placeholder="Enter Your order:"
                   className="form-control"
                   style={style}
                   onChange={handleChange}
@@ -276,17 +197,17 @@ const FeedbackForm = () => {
                 </label>
                 <select
                   name="feedbackChannel"
-                  value={formData.feedbackChannel}
                   className="form-select"
                   style={style}
+                  value={formData.feedbackChannel} // Set default value
                   onChange={handleChange}
                   onFocus={() => setFocusedInput("feedbackChannel")}
                   onBlur={() => setFocusedInput("")}
                 >
-                  <option>Dine In</option>
-                  <option>Take away</option>
-                  <option>Delivery</option>
-                  <option>Pick Up</option>
+                  <option value="Dine In">Dine In</option>
+                  <option value="Take away">Take away</option>
+                  <option value="Delivery">Delivery</option>
+                  <option value="Pick Up">Pick Up</option>
                 </select>
               </Col>
             </Row>
@@ -322,17 +243,17 @@ const FeedbackForm = () => {
                 </label>
                 <select
                   name="selectStore"
-                  value={formData.selectStore}
                   className="form-select"
                   style={style}
+                  value={formData.selectStore} // Set default value
                   onChange={handleChange}
                   onFocus={() => setFocusedInput("selectStore")}
                   onBlur={() => setFocusedInput("")}
                 >
-                  <option>Lahore</option>
-                  <option>Karachi</option>
-                  <option>Islamabad</option>
-                  <option>Multan</option>
+                  <option value="Lahore">Lahore</option>
+                  <option value="Karachi">Karachi</option>
+                  <option value="Islamabad">Islamabad</option>
+                  <option value="Multan">Multan</option>
                 </select>
               </Col>
               <Col>
@@ -348,6 +269,7 @@ const FeedbackForm = () => {
                 <div className="input-group">
                   <input
                     type="date"
+                    name="date"
                     placeholder="DD MM YYYY"
                     style={style}
                     onFocus={() => setFocusedInput("date")}
@@ -380,16 +302,16 @@ const FeedbackForm = () => {
                 </label>
                 <select
                   name="feedbackType"
-                  value={formData.feedbackType}
                   className="form-select"
-                  style={{ style }}
+                  style={style}
+                  value={formData.feedbackType} // Set default value
                   onChange={handleChange}
                   onFocus={() => setFocusedInput("feedbackType")}
                   onBlur={() => setFocusedInput("")}
                 >
-                  <option>Compliment</option>
-                  <option>Complaint</option>
-                  <option>Suggestion</option>
+                  <option value="Compliment">Compliment</option>
+                  <option value="Complaint">Complaint</option>
+                  <option value="Suggestion">Suggestion</option>
                 </select>
               </Col>
             </Row>
@@ -406,7 +328,6 @@ const FeedbackForm = () => {
                 </label>
                 <textarea
                   name="feedback"
-                  value={formData.feedback}
                   className="form-control"
                   rows="6"
                   style={{
@@ -427,7 +348,7 @@ const FeedbackForm = () => {
               </Col>
             </Row>
           </div>
-        </Col>{" "}
+        </Col>
         <Row className="justify-content-center mt-3 mb-5">
           <Col xs="auto">
             <button
@@ -439,7 +360,7 @@ const FeedbackForm = () => {
             </button>
           </Col>
         </Row>
-      </Row> */}
+      </Row>
     </form>
   );
 };
