@@ -7,13 +7,13 @@ const AboutUsHistorySection = () => {
     
     <Row
       className="align-items-center"
-      style={{ marginTop: "10px", marginBottom: "10px" }}
+      style={{ marginTop: "70px", marginBottom: "70px" }}
     >
       <Col xs={0} sm={0} md={1} lg={1}></Col>
       <Col md={10} lg={10}>
         <Row
           className="align-items-center"
-          style={{ background: "grey", borderRadius: "8px", padding: "20px" }}
+          style={{ background: "#1C1C1C", borderRadius: "8px", padding: "20px" }}
         >
           <Col md={4} lg={4}>
             <Image

@@ -5,7 +5,7 @@ const AboutUsIntro = () => {
   return (
     <>
       <Row >
-        <h2 style={{ textAlign: "center", fontWeight: "bold" }}>About us</h2>
+        <h2 style={{marginTop:"50px" ,marginBottom:"50px",textAlign: "center", fontWeight: "bold" ,color:"white"}}>About us</h2>
       </Row>
 
       <Row className="align-items-center">
@@ -25,7 +25,7 @@ const AboutUsIntro = () => {
         <Col md={10} lg={10}>
           <Row
             className="align-items-center"
-            style={{ background: "grey", borderRadius: "8px", padding: "20px" }}
+            style={{ background: "#1C1C1C", borderRadius: "8px", padding: "50px" }}
           >
             <Col md={8} lg={8} style={{ color: "white" }}>
               <p style={{ textAlign: "justify" }}>

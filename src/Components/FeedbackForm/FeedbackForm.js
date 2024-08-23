@@ -1,183 +1,334 @@
-import React from 'react'; // Import React library
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS for styling
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon component
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'; // Import specific FontAwesome icon
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { Row, Col } from 'react-bootstrap';
 
 const FeedbackForm = () => {
+  const [focusedInput, setFocusedInput] = useState('');
+
   return (
-    <div style={{  minHeight: '100vh', padding: '2rem 0' }}>
-      {/* Main container with  full viewport height, and padding */}
-      <div className="container ">
-        {/* Bootstrap container class for responsive fixed-width layout and text alignment */}
-        
-        {/* Heading section */}
-        <h2 style={{ color: '#fff', fontWeight: 'bold',textAlign: 'center' }}>
-          Have Some Feedback To Share?
+    <div>
+      <Row>
+        <h1 style={{ color: 'white', textAlign: 'center' }}>
+          Have some Feedback to share
+        </h1>
+        <h2 style={{ color: '#ea002a', textAlign: 'center' }}>
+          Well, you’ve come to the right place!
         </h2>
-        {/* Main heading with white color and bold font weight */}
-        
-        <h3 style={{ color: '#ea002a', fontWeight: '700', fontSize: '25px',textAlign: 'center'  }}>
-          Well, you've come to the right place!
-        </h3>
-        {/* Subheading with red color, bold font weight, and larger font size */}
-        
-        <p style={{ color: '#fff' ,alignItems: 'center' }}>
-          Fill in the sections below and we'll be in touch soon, or if you want to contact a specific store, visit our locations page for store contact details. * indicates a required answer
+        <p style={{ color: 'white', textAlign: 'center', padding: '0px 15%' }}>
+          Fill in the sections below and we'll be in touch soon, or if you want
+          to contact a specific store, visit our locations page for store
+          contact details. * indicates a required answer
         </p>
-        {/* Paragraph with white color, explaining the form details */}
-        
-        <div className="row mt-5">
-          {/* Bootstrap row for horizontal alignment of columns with top margin */}
-          
-          {/* Contact Details Section */}
-          <div className="col-md-6 mb-4">
-            {/* Bootstrap column taking half the width on medium screens with bottom margin */}
-            <div style={{ backgroundColor: '#1C1C1C', borderRadius: '8px', padding: '1rem' }}>
-              {/* Container with dark background, rounded corners, and padding */}
-              
-              <h4 style={{ color: '#fff', fontWeight: 'bold', marginBottom: '1rem', textAlign: 'left' }}>
-                Contact Details
-              </h4>
-              {/* Section heading with white color, bold font weight, and left-aligned text */}
-              
-              <div className=""style={{ display: 'flex', gap: '1rem' }}>
-                {/* Flex container for horizontal layout with gap between items */}
-                
-                <div className="mb-3" style={{ flex: 1 }}>
-                  {/* Bootstrap margin-bottom class and flex-grow style for input field */}
-                  <label style={{ color: '#fff', fontWeight: 'bold', textAlign: 'left' }}>
-                    FULL NAME *
-                  </label>
-                  {/* Label for full name with white color, bold font weight, and left-aligned text */}
-                  <input type="text" className="form-control" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }} />
-                  {/* Text input field with dark background, white text, no border, and rounded corners */}
+      </Row>
+
+      <Row className="justify-content-center">
+        <Col md={6} lg={5}>
+          <div
+            style={{
+              backgroundColor: '#1C1C1C',
+              borderRadius: '8px',
+              padding: '1.5rem',
+              height: '450px',
+              marginBottom: '1rem',
+            }}
+          >
+            <h4
+              style={{
+                color: '#fff',
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                textAlign: 'left',
+              }}
+            >
+              Contact Details
+            </h4>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <div className="mb-3" style={{ flex: 1 }}>
+                <label
+                  style={{ color: '#fff', fontWeight: 'bold', textAlign: 'left',marginBottom:'10px' }}
+                >
+                  FULL NAME *
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{
+                    backgroundColor: '#333',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '4px',
+                    borderBottom:
+                      focusedInput === 'fullName'
+                        ? '2px solid #ea002a'
+                        : '1px solid #fff',
+                    padding: '0.5rem 1rem',
+                  }}
+                  onFocus={() => setFocusedInput('fullName')}
+                  onBlur={() => setFocusedInput('')}
+                />
+              </div>
+              <div className="mb-3" style={{ flex: 1 }}>
+                <label
+                  style={{ color: '#fff', fontWeight: 'bold', textAlign: 'left' ,marginBottom:'10px'}}
+                >
+                  PHONE NUMBER (3XXXXXXXXXX) *
+                </label>
+                <div className="input-group">
+                  <span
+                    className="input-group-text"
+                    style={{
+                      backgroundColor: '#333',
+                      color: '#fff',
+                      border: 'none',
+                      borderBottom:
+                        focusedInput === 'phoneNumber'
+                          ? '2px solid #ea002a'
+                          : '1px solid #fff',
+                      padding: '0.5rem 1rem',
+                    }}
+                    onFocus={() => setFocusedInput('phoneNumber')}
+                    onBlur={() => setFocusedInput('')}
+                  >
+                    +92
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    style={{
+                      backgroundColor: '#333',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      borderBottom:
+                        focusedInput === 'phoneNumber'
+                          ? '2px solid #ea002a'
+                          : '1px solid #fff',
+                      padding: '0.5rem 1rem',
+                    }}
+                    onFocus={() => setFocusedInput('phoneNumber')}
+                    onBlur={() => setFocusedInput('')}
+                  />
                 </div>
-                
-                <div className="mb-3" style={{ flex: 1 }}>
-                  {/* Bootstrap margin-bottom class and flex-grow style for input field */}
-                  <label style={{ color: '#fff', fontWeight: 'bold', textAlign: 'left' }}>
-                    PHONE NUMBER (3XXXXXXXXXX) *
-                  </label>
-                  {/* Label for phone number with white color, bold font weight, and left-aligned text */}
-                  <div className="input-group">
-                    {/* Bootstrap input group for combining input fields */}
-                    <span className="input-group-text" style={{ backgroundColor: '#333', color: '#fff', border: 'none' }}>
-                      +92
-                    </span>
-                    {/* Input group text with dark background, white text, and no border */}
-                    <input type="text" className="form-control" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }} />
-                    {/* Text input field with dark background, white text, no border, and rounded corners */}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
-                  EMAIL *
-                </label>
-                {/* Label for email with white color and bold font weight */}
-                <input type="email" className="form-control" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }} />
-                {/* Email input field with dark background, white text, no border, and rounded corners */}
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
-                  ORDER ID *
-                </label>
-                {/* Label for order ID with white color and bold font weight */}
-                <input type="text" className="form-control" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }} />
-                {/* Text input field for order ID with dark background, white text, no border, and rounded corners */}
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
-                  FEEDBACK CHANNEL *
-                </label>
-                {/* Label for feedback channel with white color and bold font weight */}
-                <select className="form-select" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }}>
-                  <option>Choose...</option>
-                  {/* Dropdown select field with dark background, white text, no border, and rounded corners */}
-                </select>
               </div>
             </div>
+            <div className="mb-3">
+              <label style={{ color: '#fff', fontWeight: 'bold' ,marginBottom:'10px'}}>
+                EMAIL *
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                style={{
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  borderBottom:
+                    focusedInput === 'email'
+                      ? '2px solid red'
+                      : '1px solid #fff',
+                  padding: '0.5rem 1rem',
+                }}
+                onFocus={() => setFocusedInput('email')}
+                onBlur={() => setFocusedInput('')}
+              />
+            </div>
+            <div className="mb-3">
+              <label style={{ color: '#fff', fontWeight: 'bold',marginBottom:'10px' }}>
+                ORDER ID *
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                style={{
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '4px',
+                  borderBottom:
+                    focusedInput === 'orderId'
+                      ? '2px solid #ea002a'
+                      : '1px solid #fff',
+                  padding: '0.5rem 1rem',
+                }}
+                onFocus={() => setFocusedInput('orderId')}
+                onBlur={() => setFocusedInput('')}
+              />
+            </div>
+            <div className="mb-2">
+              <label style={{ color: '#fff', fontWeight: 'bold' ,marginBottom:'10px'}}>
+                FEEDBACK CHANNEL *
+              </label>
+              <select
+                className="form-select"
+                style={{
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  border: 'none',
+                  borderBottom:
+                    focusedInput === 'feedbackChannel'
+                      ? '2px solid #ea002a'
+                      : '1px solid #fff',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '4px',
+                }}
+                onFocus={() => setFocusedInput('feedbackChannel')}
+                onBlur={() => setFocusedInput('')}
+              >
+                <option>Dine In </option>
+                <option>Take away</option>
+                <option>Delivery</option>
+                <option>Pick Up</option>
+
+              </select>
+            </div>
           </div>
-          
-          {/* About Your Visit Section */}
-          <div className="col-md-6 mb-4">
-            {/* Bootstrap column taking half the width on medium screens with bottom margin */}
-            <div style={{ backgroundColor: '#1C1C1C', borderRadius: '8px', padding: '1rem' }}>
-              {/* Container with dark background, rounded corners, and padding */}
-              
-              <h4 style={{ color: '#fff', fontWeight: 'bold', marginBottom: '1rem', textAlign: 'left' }}>
-                About Your Visit
-              </h4>
-              {/* Section heading with white color, bold font weight, and left-aligned text */}
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
+        </Col>
+
+        <Col md={6} lg={5}>
+          <div
+            style={{
+              backgroundColor: '#1C1C1C',
+              borderRadius: '8px',
+              padding: '1rem',
+            }}
+          >
+            <h4
+              style={{
+                color: '#fff',
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                textAlign: 'left',
+              }}
+            >
+              About Your Visit
+            </h4>
+            <div className="row">
+              <Col md={6} className="mb-3">
+                <label style={{ color: '#fff', fontWeight: 'bold', marginBottom:'10px'}}>
                   SELECT STORE
                 </label>
-                {/* Label for selecting a store with white color and bold font weight */}
-                <select className="form-select" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }}>
-                  <option>Choose...</option>
-                  {/* Dropdown select field with dark background, white text, no border, and rounded corners */}
+                <select
+                  className="form-select"
+                  style={{
+                    backgroundColor: '#333',
+                    color: '#fff',
+                    border: 'none',
+                    borderBottom:
+                      focusedInput === 'selectStore'
+                        ? '2px solid #ea002a'
+                        : '1px solid #fff',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '4px',
+                  }}
+                  onFocus={() => setFocusedInput('selectStore')}
+                  onBlur={() => setFocusedInput('')}
+                >
+                  <option>Lahore</option>
+                  <option>Karachi</option>
+                  <option>Islamabad</option>
+                  <option>Multan</option>
+
+
                 </select>
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
+              </Col>
+              <Col md={6} className="mb-3" style={{ position: 'relative' }}>
+                <label style={{ color: '#fff', fontWeight: 'bold',marginBottom:'10px' }}>
                   DATE *
                 </label>
-                {/* Label for date with white color and bold font weight */}
-                <div className="input-group">
-                  {/* Bootstrap input group for combining input fields */}
-                  <input type="text" className="form-control" placeholder="DD MM YYYY" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }} />
-                  {/* Text input field with placeholder for date, dark background, white text, no border, and rounded corners */}
-                  <span className="input-group-text" style={{ backgroundColor: '#333', color: '#ff0000', border: 'none' }}>
+                <div className="input-group" style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="date"
+                    placeholder="DD MM YYYY"
+                    style={{
+                      backgroundColor: '#333',
+                      color: '#fff',
+                      border: 'none',
+                      borderBottom:
+                        focusedInput === 'date'
+                          ? '2px solid #ea002a'
+                          : '1px solid #fff',
+                      borderRadius: '4px',
+                      padding: '0.5rem 1rem',
+                      width: '100%',
+                      fontSize: '1rem',
+                      outline: 'none',
+                    }}
+                    onFocus={() => setFocusedInput('date')}
+                    onBlur={() => setFocusedInput('')}
+                  />
+                  <span
+                    style={{
+                      position: 'absolute',
+                      right: '12px',
+                      color: '#ff0000',
+                      fontSize: '1.5rem',
+                      pointerEvents: 'none',
+                    }}
+                  >
                     <FontAwesomeIcon icon={faCalendarAlt} />
                   </span>
-                  {/* Icon with dark background, red color, and no border */}
                 </div>
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
-                  FEEDBACK TYPE *
-                </label>
-                {/* Label for feedback type with white color and bold font weight */}
-                <select className="form-select" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }}>
-                  <option>Choose...</option>
-                  {/* Dropdown select field with dark background, white text, no border, and rounded corners */}
-                </select>
-              </div>
-              
-              <div className="mb-3">
-                {/* Bootstrap margin-bottom class for spacing */}
-                <label style={{ color: '#fff', fontWeight: 'bold' }}>
-                  FEEDBACK *
-                </label>
-                {/* Label for feedback with white color and bold font weight */}
-                <textarea className="form-control" rows="4" style={{ backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '4px' }}></textarea>
-                {/* Textarea field for feedback with dark background, white text, no border, and rounded corners */}
-              </div>
+              </Col>
+            </div>
+
+            <div className="mb-3">
+              <label style={{ color: '#fff', fontWeight: 'bold',marginBottom:'10px' }}>
+                FEEDBACK TYPE *
+              </label>
+              <select
+                className="form-select"
+                style={{
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  border: 'none',
+                  borderBottom:
+                    focusedInput === 'feedbackType'
+                      ? '2px solid #ea002a'
+                      : '1px solid #fff',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '4px',
+                }}
+                onFocus={() => setFocusedInput('feedbackType')}
+                onBlur={() => setFocusedInput('')}
+              >
+                <option>Comments</option>
+                <option>Suggestions</option>
+                <option>Questions</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label style={{ color: '#fff', fontWeight: 'bold',marginBottom:'10px' }}>
+                FEEDBACK *
+              </label>
+              <textarea
+                className="form-control"
+                rows="6"
+                style={{
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  border: '1px solid white',
+                  borderRadius: '4px',
+                }}
+              ></textarea>
             </div>
           </div>
-        </div>
-        
-        {/* Submit Button */}
-        <button type="submit" className="btn btn-danger" style={{ padding: '0.5rem 2rem' }}>
+        </Col>
+      </Row>
+
+      <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+        <button
+          type="submit"
+          className="btn btn-danger"
+          style={{ padding: '0.5rem 2rem', marginBottom: '20px' }}
+        >
           SUBMIT
         </button>
-        {/* Submit button with red background, padding, and white text */}
       </div>
     </div>
   );
 };
 
-export default FeedbackForm; // Export the FeedbackForm component
+export default FeedbackForm;

@@ -117,12 +117,12 @@ const FeedbackForm2 = () => {
           </Row>
 
           <div className="mb-4">
-            <select className="form-select">
+            <select className="form-select" style={{ height: "50px" }}>
               <option>FEEDBACK TYPE *</option>
             </select>
           </div>
           <div className="mb-2">
-            <textarea className="form-control" rows="5"></textarea>
+            <textarea className="form-control" rows="3"></textarea>
           </div>
         </Col>
       </Row>
