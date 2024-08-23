@@ -60,6 +60,19 @@ const Header = () => {
               >
                Feedback Form
               </a>
+              <a href="/ContactUs" 
+                style={{ 
+                  margin: '0 10px', 
+                  textDecoration: 'none', 
+                  color: '#fff', 
+                  fontFamily: '"DM Sans", Sans-serif', 
+                  fontSize: '15px', 
+                  fontWeight: 600, 
+                  lineHeight: '1.3em' 
+                }}
+              >
+               Contact Us
+              </a>
             </div>
 
             {/* Buttons for larger screens */}
